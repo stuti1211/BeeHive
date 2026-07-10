@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../serviecs/authService';
 
-function Login() {
-
+function Login(){
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',

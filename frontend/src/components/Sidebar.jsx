@@ -1,17 +1,8 @@
 import React from "react";
-import {
-  Home,
-  Folder,
-  Clock3,
-  Star,
-  Trash2,
-  HardDrive,
-  LogOut,
-} from "lucide-react";
+import {Home, Folder, Clock3, Star, Trash2, HardDrive, LogOut } from "lucide-react";
 
 const Sidebar = () => {
   return (
-
     <aside className="w-64 h-full-screen bg-white border-r rounded-lg border-gray-200 flex flex-col shadow-sm">
       <nav className="flex-1 mt-4">
         <ul className="space-y-2 px-4">
