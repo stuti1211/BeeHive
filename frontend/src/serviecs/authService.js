@@ -1,4 +1,5 @@
 import axios from 'axios';
+//import { response } from '../../../backend/src/app';
 
 const API_URL = 'http://localhost:5000/api/auth';
 
@@ -48,13 +49,9 @@ export const getFiles = async () => {
     return response.data;
 };
 export const uploadFile = async (file) => {
-
     const token = localStorage.getItem('token');
-
     const formData = new FormData();
-
     formData.append('file', file);
-
     const response = await axios.post(
         'http://localhost:5000/api/files/upload',
         formData,
@@ -66,4 +63,33 @@ export const uploadFile = async (file) => {
     );
 
     return response.data;
-};
+};    
+
+ export const viewFiles = async(id)=> {
+    const token = localStorage.getItem("token");
+    const response = await axios.get(
+       `http://localhost:5000/api/files/${id}/view`,
+      {
+         headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            responseType: "blob",
+        }
+    );
+    console.log(response);
+ return response.data;
+
+ };
+
+ export const deleteFiles= async(id)=>{
+    const token =localStorage.getItem("token");
+    const response =await axios.delete(
+        `http://localhost:5000/api/files/${id}/delete`,
+        {
+         headers: {
+                Authorization: `Bearer ${token}`,
+         } 
+        }
+    );
+    return response.data;
+ }

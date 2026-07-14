@@ -62,7 +62,7 @@ function Login(){
                     />
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 rounded"
+                        className="w-full bg-yellow-200 text-teal font-bold py-2 rounded"
                     >
                         Login
                     </button>
