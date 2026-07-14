@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef  } from 'react';
-import { getCurrentUser,getFiles ,uploadFile} from '../serviecs/authService';
+import { deleteFiles, getCurrentUser,getFiles ,uploadFile, viewFiles} from '../serviecs/authService';
 import Sidebar from '../components/Sidebar';
 import { Download, Trash2 ,Search} from "lucide-react";
 import sud from '../assests/sud.png';
@@ -33,11 +33,41 @@ function Dashboard() {
         const fileData = await getFiles();
         setFiles(fileData);
 
-        alert("File uploaded successfully");
+        //alert("File uploaded successfully");
       } catch (error) {
         console.error(error);
       }
     };
+    
+    const handleView = async(id)=>{
+       try{
+          console.log(2);
+          const blob = await viewFiles(id); 
+          const url = window.URL.createObjectURL(blob);
+           window.open(url, "_blank");
+           setTimeout(() => {
+           window.URL.revokeObjectURL(url);
+          }, 1000);
+
+       }
+       catch(error){
+         console.error(error);
+        alert("Unable to open file");
+       }
+       
+    };
+    const handleDelete= async(id)=>{
+       try{
+        await deleteFiles(id);
+        setFiles((prevFile)=>
+         prevFile.filter((file)=>
+            file.id!==id)                
+      );
+    }catch(error){
+      console.error(error);
+        alert("Failed to delete file");
+    }
+  }
 
 return (
 <div className="min-h-screen bg-gray-100">
@@ -124,7 +154,11 @@ return (
               key={file.id}
               className="p-3 rounded mb-2 flex justify-between items-center"
             >
-              <span>{file.original_name}</span>
+             <span
+                onClick={() => handleView(file.id)}
+                className="cursor-pointer hover:text-blue-600 hover:underline">
+              {file.original_name}
+               </span>
               <div className="flex gap-3">
                <Download
                     size={20}
