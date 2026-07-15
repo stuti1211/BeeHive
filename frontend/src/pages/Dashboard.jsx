@@ -81,7 +81,7 @@ return (
         <h1 className="text-3xl font-bold">BeeHive</h1>
       </div>
       {/* Search Bar */}
-    <div className="flex-1 flex justify-center px-3">
+    {/* <div className="flex-1 flex justify-center px-3">
      <div className="relative w-full max-w-xl">
         <Search
         size={20}
@@ -93,7 +93,7 @@ return (
         className="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 bg-white shadow-sm outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
         />
     </div>
-    </div>
+    </div> */}
     <div className="flex items-center gap-4 bg-white px-5 py-3 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition">
       {/* Avatar */}
         <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center text-xl font-bold text-white">

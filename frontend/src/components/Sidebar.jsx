@@ -14,7 +14,7 @@ const Sidebar = () => {
       <nav className="flex-1 mt-3">
         <ul className=" px-4">
           <li>
-            <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-gray-100 transition">
+            <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-gray-100 transition cursor-pointer">
               <Folder size={20} />
               My Files
             </button>
@@ -38,7 +38,7 @@ const Sidebar = () => {
       <div className="p-4 ">
       <button
       onClick={handleLogout}
-      className="flex items-center gap-3 text-red-500 hover:bg-red-50 w-full px-4 py-3 rounded-xl transition"
+      className="flex items-center gap-3 text-red-500 hover:bg-red-50 w-full px-4 py-3 rounded-xl transition cursor-pointer"
       > Logout</button>
       </div>
 
