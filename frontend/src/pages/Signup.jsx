@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { signup } from '../serviecs/authService';
 
+
 function Signup() {
   const [formData, setFormData] = useState({
     name: '',

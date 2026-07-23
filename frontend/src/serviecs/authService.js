@@ -93,3 +93,14 @@ export const uploadFile = async (file) => {
     );
     return response.data;
  }
+
+ export const googleLogin =async(credential)=>{
+    const response = await axios.post(
+     `${API_URL}/google`,
+        {
+            credential,
+        }
+    );
+
+    return response.data;
+};

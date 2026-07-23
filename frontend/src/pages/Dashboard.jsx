@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef  } from 'react';
 import { deleteFiles, getCurrentUser,getFiles ,uploadFile, viewFiles} from '../serviecs/authService';
 import Sidebar from '../components/Sidebar';
-import { Download, Trash2 ,Search} from "lucide-react";
+import { Download, Trash2 ,Search } from "lucide-react";
 import sud from '../assests/sud.png';
 
 function Dashboard() {
     const [user, setUser] = useState(null);
     const fileInputRef = useRef(null);
+    const [search ,setSearch]=useState("");
     const [files, setFiles] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
     useEffect(() => {
@@ -68,7 +69,9 @@ function Dashboard() {
         alert("Failed to delete file");
     }
   }
-
+const filteredFiles = files.filter((file)=>{
+  return file.original_name.toLowerCase().includes(search.toLowerCase())
+});
 return (
 <div className="min-h-screen bg-gray-100">
     <div className="flex justify-between items-center px-8 py-3">
@@ -89,6 +92,8 @@ return (
         />
         <input
         type="text"
+        value={search}
+        onChange={(e)=>setSearch(e.target.value)}
         placeholder="Search files..."
         className="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 bg-white shadow-sm outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
         />
@@ -149,7 +154,7 @@ return (
                 }}
               />
             </div>
-          {files.map((file) => (
+          {filteredFiles.map((file) => (
             <div
               key={file.id}
               className="p-3 rounded mb-2 flex justify-between items-center"
