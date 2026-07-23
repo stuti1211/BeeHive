@@ -8,7 +8,7 @@ const profileRoutes=require('./routes/profileRoutes')
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5174'
 }));
 
 app.use(express.json());

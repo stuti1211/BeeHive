@@ -7,14 +7,13 @@ const Sidebar = () => {
   const handleLogout = ()=>{
     localStorage.removeItem("token");
     navigate("/login");
-
-};
+  }
   return (
     <aside className="w-64 h-75 bg-white border-r rounded-lg border-gray-200 flex flex-col shadow-sm mt-4">
       <nav className="flex-1 mt-3">
         <ul className=" px-4">
           <li>
-            <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-gray-100 transition">
+            <button className="flex items-center gap-3 w-full px-4 py-3 rounded-xl hover:bg-gray-100 transition cursor-pointer">
               <Folder size={20} />
               My Files
             </button>
@@ -35,13 +34,13 @@ const Sidebar = () => {
         </div>
       </nav>
 
-      <div className="p-4 ">
-      <button
-      onClick={handleLogout}
-      className="flex items-center gap-3 text-red-500 hover:bg-red-50 w-full px-4 py-3 rounded-xl transition"
-      > Logout</button>
-      </div>
-
+      <div 
+        onClick={handleLogout}
+        className="flex items-center gap-3 text-red-500 hover:bg-red-50 w-full px-4 py-3 rounded-xl transition cursor-pointer"
+        >
+      <LogOut size={18}/>
+       <span>Logout</span>
+     </div>
     </aside>
   );
 };
