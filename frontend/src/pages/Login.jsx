@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login, signup ,googleLogin} from '../serviecs/authService';
-import { Mail, Lock, User ,ShieldCheck, Upload, Cloud, FolderOpen } from "lucide-react";
+import { Mail, Lock, User ,ShieldCheck, Upload, Cloud, FolderOpen,Eye, EyeOff } from "lucide-react";
 import { GoogleLogin}  from "@react-oauth/google";
 import sud from '../assests/sud.png';
 import honey from '../assests/honey.png'
@@ -9,6 +9,7 @@ import honey from '../assests/honey.png'
 function Login(){
     const navigate = useNavigate();
     const [isLogin ,setIsLogin]=useState(true);
+    const [showPassword,setShowPassword]=useState(false);
     const [formData, setFormData] = useState({
         name:'',
         email: '',
@@ -194,20 +195,24 @@ function Login(){
   {/* Password */}
   <div>
     <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
-      <div className="relative">
+      <div className="relative justity items-center">
         <Lock
         size={18}
         className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
         />
             <input
-            type="password"
+            type={showPassword? "text": "password"}
             name="password"
             placeholder="Enter your password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400"
-         />
-            
+            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400"   
+            />   
+          <button  className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+             onClick={()=>setShowPassword(!showPassword)}
+             type="button">
+             {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+         </button>      
     </div>
 </div>
             <div className="flex items-center mt-3 justify-between">
