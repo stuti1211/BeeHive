@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const signup = async (userData) => {
     const response = await axios.post(
-        `${API_URL}api/auth/signup`,
+        `${API_URL}/api/auth/signup`,
         userData
     );
 
@@ -14,7 +14,7 @@ export const signup = async (userData) => {
 
 export const login = async (userData) => {
     const response = await axios.post(
-        `${API_URL}/login`,
+        `${API_URL}/api/auth/login`,
         userData
     );
 
@@ -23,7 +23,7 @@ export const login = async (userData) => {
 export const getCurrentUser = async () => {
     const token = localStorage.getItem('token');
     const response = await axios.get(
-        `${API_URL}/me`,
+        `${API_URL}/api/auth/me`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -38,7 +38,7 @@ export const getFiles = async () => {
     const token = localStorage.getItem('token');
 
     const response = await axios.get(
-         `${API_URL}/api/files`,
+         `${API_URL}/api/auth/files`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
