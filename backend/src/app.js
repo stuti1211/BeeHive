@@ -8,7 +8,7 @@ const profileRoutes=require('./routes/profileRoutes')
 
 const app = express();
 app.use(cors({
-    origin: ['http://localhost:5174',
+    origin: ['http://localhost:5173',
     "https://bee-hive-zfdijgwr5-stutis-projects-78a6cf72.vercel.app",]
 }));
 
