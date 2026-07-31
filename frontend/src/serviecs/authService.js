@@ -1,7 +1,7 @@
 import axios from 'axios';
 //import { response } from '../../../backend/src/app';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = "";
 
 export const signup = async (userData) => {
     const response = await axios.post(
@@ -96,7 +96,7 @@ export const uploadFile = async (file) => {
 
  export const googleLogin =async(credential)=>{
     const response = await axios.post(
-     `${API_URL}/google`,
+     `${API_URL}/api/auth/google`,
         {
             credential,
         }
