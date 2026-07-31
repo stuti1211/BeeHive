@@ -38,7 +38,7 @@ export const getFiles = async () => {
     const token = localStorage.getItem('token');
 
     const response = await axios.get(
-         `${API_URL}/api/auth/files`,
+         `${API_URL}/api/files`,
         {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -53,7 +53,7 @@ export const uploadFile = async (file) => {
     const formData = new FormData();
     formData.append('file', file);
     const response = await axios.post(
-         `${API_URL}api/files/upload`,
+         `${API_URL}/api/files/upload`,
         formData,
         {
             headers: {

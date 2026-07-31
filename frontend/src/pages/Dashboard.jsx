@@ -165,11 +165,11 @@ return (
               {file.original_name}
                </span>
               <div className="flex gap-3">
-               <Download
+               {/* <Download
                     size={20}
                     className="text-blue-600 cursor-pointer hover:text-blue-800 transition"
                     onClick={() => handleDownload(file.id)}
-               />
+               /> */}
                 <Trash2
                     size={20}
                     className="text-red-600 cursor-pointer hover:text-red-800 transition"
